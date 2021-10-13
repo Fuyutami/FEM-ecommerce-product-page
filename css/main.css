@@ -85,6 +85,7 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .user-nav__icon:hover {
@@ -93,6 +94,22 @@ body {
 
 .user-nav__icon:hover path {
   fill: #1d2025;
+}
+
+.user-nav__cart-number {
+  font-size: 1rem;
+  font-weight: 700;
+  width: 19px;
+  height: 13px;
+  border-radius: 6.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 3.8rem;
+  right: -1rem;
+  color: white;
+  background-color: #ff7d1a;
 }
 
 .user-nav__user-avatar-box {
@@ -147,6 +164,7 @@ body {
   height: 445px;
   border-radius: 15px;
   margin-bottom: 30px;
+  transition: background-image 0.3s ease;
 }
 
 .product-gallery__thumbnails {
@@ -347,4 +365,9 @@ body {
 
 .cart-path {
   fill: white;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
 }
