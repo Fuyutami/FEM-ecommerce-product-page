@@ -3,6 +3,7 @@
 // VARIABLES
 let quantity = 0
 let inCartNumber = 0;
+let lightboxThumbNr = 1
 
 
 
@@ -29,6 +30,11 @@ const largePrew = document.querySelector('.product-gallery__large-preview')
 const thumbnailContainer = document.querySelector('.product-gallery__thumbnails')
 const thumbnails = document.querySelectorAll('.product-gallery__thumb-prew')
 
+largePrew.addEventListener('click', function () {
+    lightBigPrew.style.backgroundImage = `url(../images/image-product-${lightboxThumbNr}.jpg)`
+    lightThumbs[lightboxThumbNr-1].classList.add('lightbox__thumbnail--active')
+    lightbox.classList.remove('hidden')
+})
 
 thumbnailContainer.addEventListener('click', function (e) {
     const clicked = e.target.closest('.product-gallery__thumb-prew')
@@ -40,6 +46,7 @@ thumbnailContainer.addEventListener('click', function (e) {
     clicked.classList.add('product-gallery__thumb-active')
 
     largePrew.style.backgroundImage = `url(../images/image-product-${clicked.dataset.thumb}.jpg)`
+    lightboxThumbNr = clicked.dataset.thumb
 })
 
 
@@ -73,4 +80,25 @@ window.addEventListener('click', function (e) {
         cartPopUp.classList.add('hidden')
         
     }
+})
+
+
+// LIGHTBOX
+const lightbox = document.querySelector('.lightbox')
+const lightBigPrew = document.querySelector('.lightbox__large-prew')
+const lightThumbContainer = document.querySelector('.lightbox__thumbnails-container')
+const lightThumbs = document.querySelectorAll('.lightbox__thumbnail')
+const btnClose = document.querySelector('.lightbox__close-btn')
+const btnPrevious = document.querySelector('.lightbox__control--previous')
+const btnNext = document.querySelector('.lightbox__control--next')
+
+const viewImage = function (number) {
+    lightThumbs.forEach(t => t.classList.remove('lightbox__thumbnail--active'))
+    lightThumbs[number-1].classList.add('lightbox__thumbnail--active')
+    lightBigPrew.style.backgroundImage = `url(../images/image-product-${number}.jpg)`
+}
+
+btnClose.addEventListener('click', function () {
+    lightbox.classList.add('hidden')
+    lightThumbs.forEach(t => t.classList.remove('lightbox__thumbnail--active'))
 })

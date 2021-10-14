@@ -229,6 +229,16 @@ body {
   cursor: pointer;
 }
 
+.product-gallery__thumb-prew:hover::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .product-gallery__thumb-active::before {
   content: '';
   display: block;
@@ -421,9 +431,136 @@ body {
   background-color: rgba(0, 0, 0, 0.75);
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: 500;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: auto;
+}
+
+.lightbox__content-wrapper {
+  position: relative;
+}
+
+.lightbox__control {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox__control:hover {
+  cursor: pointer;
+}
+
+.lightbox__control:hover path {
+  stroke: #ff7d1a;
+}
+
+.lightbox__control--previous {
+  left: 0;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.lightbox__control--next {
+  right: 0;
+  transform: translateX(50%) translateY(-50%);
+}
+
+.lightbox__close-btn {
+  position: absolute;
+  right: 0;
+}
+
+.lightbox__close-btn path {
+  fill: white;
+}
+
+.lightbox__close-btn:hover {
+  cursor: pointer;
+}
+
+.lightbox__close-btn:hover path {
+  fill: #ff7d1a;
+}
+
+.lightbox__large-prew {
+  background-image: url(../images/image-product-1.jpg);
+  background-size: cover;
+  width: 550px;
+  height: 550px;
+  border-radius: 15px;
+  margin-top: 4.5rem;
+  position: relative;
+}
+
+.lightbox__thumbnails-container {
+  width: 100%;
+  padding: 38px 50px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lightbox__thumbnail {
+  background-size: cover;
+  width: 88px;
+  height: 88px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.lightbox__thumbnail:hover {
+  cursor: pointer;
+}
+
+.lightbox__thumbnail:hover::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.lightbox__thumbnail--1 {
+  background-image: url(../images/image-product-1-thumbnail.jpg);
+}
+
+.lightbox__thumbnail--2 {
+  background-image: url(../images/image-product-2-thumbnail.jpg);
+}
+
+.lightbox__thumbnail--3 {
+  background-image: url(../images/image-product-3-thumbnail.jpg);
+}
+
+.lightbox__thumbnail--4 {
+  background-image: url(../images/image-product-4-thumbnail.jpg);
+}
+
+.lightbox__thumbnail--active::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.lightbox__thumbnail--active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  position: absolute;
+  border: 2px solid #ff7d1a;
 }
