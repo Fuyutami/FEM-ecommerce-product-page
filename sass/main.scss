@@ -43,6 +43,7 @@ body {
 
 .container {
     width: 1110px;
+    position: relative;
 }
 
 
@@ -51,6 +52,7 @@ body {
    width: 100%;
    height: 112px;
    border-bottom: 1px solid #E4E9F2;
+   position: relative;
    
    display: grid;
    grid-template-columns: min-content 1fr min-content;
@@ -124,8 +126,7 @@ body {
     &__cart-number {
         font-size: 1rem;
         font-weight: $font-weight-bold;
-        width: 19px;
-        height: 13px;
+        padding: .2rem .6rem;
         border-radius: 6.5px;
         @include flex-center;
         position: absolute;
@@ -167,10 +168,48 @@ body {
 }
 
 
+.cart-pop-up {
+    background-color: $color-white;
+    width: 360px;
+    height: 256px;
+    border-radius: 10px;
+    box-shadow: 0px 20px 50px -20px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: 200;
+    right: 0;
+    bottom: 20px;
+    transform: translateY(100%) translateX(75px);
+    overflow: hidden;
+
+    &__header {
+        width: 100%;
+        height: 30%;
+        border-bottom: 1px solid #E4E9F2;
+        padding: 2.4rem;
+    }
+
+    &__title {
+        font-size: 1.6rem;
+        font-weight: $font-weight-bold;
+    }
+    &__main {
+        width: 100%;
+        height: 70%;
+        @include flex-center;
+    }
+
+    &__empty-msg {
+        color: $color-dark-grayish-blue;
+        font-size: 1.6rem;
+        font-weight: $font-weight-bold;
+    }
+}
+
+
 // PRODUCT SECTION
 
 .product-section {
-    width: 100%;
+    width: 100%; 
     display: flex;
 }
 
@@ -193,6 +232,10 @@ body {
         border-radius: 15px;
         margin-bottom: 30px;
         transition: background-image 0.3s ease;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__thumbnails {
@@ -266,7 +309,7 @@ body {
         font-size: 1.3rem;
         font-weight: $font-weight-bold;
         letter-spacing: 2px;
-        margin-bottom: 3.2rem;
+        margin-bottom: 2rem;
         text-transform: uppercase;
     }
 
@@ -275,7 +318,7 @@ body {
         font-size: 4.4rem;
         font-weight: $font-weight-bold;
         line-height: 1;
-        margin-bottom: 5rem;
+        margin-bottom: 4rem;
     }
 
     &__info {
@@ -283,7 +326,7 @@ body {
         font-size: 1.6rem;
         font-weight: $font-weight-normal;
         line-height: 1.5;
-        margin-bottom: 3.5rem;
+        margin-bottom: 3rem;
     }
 
     &__price-section {
@@ -298,7 +341,7 @@ body {
     }
 
     &__discount {
-        color: orange;
+        color: $color-orange;
         background-color: $color-pale-orange;
         border-radius: 6px;
         font-size: 1.6rem;
@@ -310,7 +353,7 @@ body {
         display: block;
         font-size: 1.6rem;
         font-weight: $font-weight-bold;
-        margin-top: 2rem;
+        margin-top: 1rem;
         text-decoration: line-through;
     }
 }
@@ -383,6 +426,7 @@ body {
 .cart-icon {
     margin-right: 1.5rem;
 }
+
 .cart-path {
     fill: $color-white;
 }
@@ -390,4 +434,15 @@ body {
 .hidden {
     display: none;
     visibility: hidden;
+}
+
+
+// LIGHTBOX
+.lightbox {
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 500;
+    @include flex-center; 
 }

@@ -52,5 +52,25 @@ btnToCart.addEventListener('click', function () {
         inCartNumber += quantity
         cartNumber.textContent = inCartNumber
         cartNumber.classList.remove('hidden')
+
+        quantity = 0
+        quantityField.textContent = quantity
+    }
+})
+
+// Cart pop-up
+const cartBtn = document.querySelector('.user-nav__icon-cart')
+const cartPopUp = document.querySelector('.cart-pop-up')
+cartBtn.addEventListener('click', function () {
+    cartPopUp.classList.remove('hidden')
+})
+
+window.addEventListener('click', function (e) {
+    const clickedCart = e.target.closest('.user-nav__icon-cart')
+    const clickedCartPopUp = e.target.closest('.cart-pop-up')
+    
+    if(!clickedCart && !clickedCartPopUp && !cartPopUp.classList.contains('hidden')) {
+        cartPopUp.classList.add('hidden')
+        
     }
 })
