@@ -12,7 +12,10 @@ html {
 }
 
 body {
+  color: #68707d;
   font-family: 'Kumbh Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -146,6 +149,7 @@ body {
   background-color: white;
   width: 360px;
   height: 256px;
+  min-height: 256px;
   border-radius: 10px;
   box-shadow: 0px 20px 50px -20px rgba(0, 0, 0, 0.2);
   position: absolute;
@@ -170,16 +174,72 @@ body {
 
 .cart-pop-up__main {
   width: 100%;
-  height: 70%;
+  min-height: 70%;
+  padding: 24px;
+  padding-bottom: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .cart-pop-up__empty-msg {
   color: #68707d;
   font-size: 1.6rem;
   font-weight: 700;
+}
+
+.cart-pop-up__list-container {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.cart-pop-up__list {
+  list-style: none;
+}
+
+.cart-pop-up__item {
+  display: flex;
+}
+
+.cart-pop-up__thumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  margin-right: 2rem;
+  overflow: hidden;
+}
+
+.cart-pop-up__thumb img {
+  width: 100%;
+  height: 100%;
+}
+
+.cart-pop-up__details {
+  margin-right: 1.5rem;
+}
+
+.cart-pop-up__item-title {
+  margin-bottom: .5rem;
+}
+
+.cart-pop-up__quantity {
+  margin-right: .5rem;
+}
+
+.cart-pop-up__price {
+  color: #1d2025;
+  font-weight: 700;
+}
+
+.cart-pop-up__icon-bin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-pop-up__icon-bin:hover {
+  cursor: pointer;
 }
 
 .product-section {
@@ -286,7 +346,7 @@ body {
 }
 
 .product-description__manufacturer {
-  color: orange;
+  color: #ff7d1a;
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -395,8 +455,13 @@ body {
 .btn {
   border: none;
   background-color: #ff7d1a;
+  min-height: 56px;
   width: 100%;
   border-radius: 10px;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -405,13 +470,6 @@ body {
 .btn:hover {
   cursor: pointer;
   background-color: #FFAB6A;
-}
-
-.btn__text {
-  color: white;
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1rem;
 }
 
 .cart-icon {

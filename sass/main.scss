@@ -29,7 +29,10 @@ html {
 }
 
 body {
+    color: $color-dark-grayish-blue;
     font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: $font-weight-normal;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -172,6 +175,7 @@ body {
     background-color: $color-white;
     width: 360px;
     height: 256px;
+    min-height: 256px;
     border-radius: 10px;
     box-shadow: 0px 20px 50px -20px rgba(0, 0, 0, 0.2);
     position: absolute;
@@ -194,8 +198,11 @@ body {
     }
     &__main {
         width: 100%;
-        height: 70%;
+        min-height: 70%;
+        padding: 24px;
+        padding-bottom: 32px;
         @include flex-center;
+        flex-direction: column;
     }
 
     &__empty-msg {
@@ -203,6 +210,61 @@ body {
         font-size: 1.6rem;
         font-weight: $font-weight-bold;
     }
+
+    &__list-container {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    &__list {
+        list-style: none;
+        
+    }
+
+    &__item {
+        display: flex;
+    }
+
+    &__thumb {
+        width: 50px;
+        height: 50px;
+        border-radius: 4px;
+        margin-right: 2rem;
+        overflow: hidden;
+
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__details {
+        margin-right: 1.5rem;
+    }
+
+    &__item-title {
+        margin-bottom: .5rem;
+    }
+
+    &__quantity {
+        margin-right: .5rem;
+    }
+
+    &__price {
+        color: $color-very-dark-blue;
+        font-weight: $font-weight-bold;
+    }
+
+    &__icon-bin {
+        @include flex-center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+
+
 }
 
 
@@ -314,7 +376,7 @@ body {
     }
 
     &__manufacturer {
-        color: orange;
+        color: $color-orange;
         font-size: 1.3rem;
         font-weight: $font-weight-bold;
         letter-spacing: 2px;
@@ -415,20 +477,18 @@ body {
 .btn {
     border: none;
     background-color: $color-orange;
+    min-height: 56px;
     width: 100%;
     border-radius: 10px;
+    color: $color-white;
+    font-size: 1.6rem;
+    font-weight: $font-weight-bold;
+    line-height: 1rem;
     @include flex-center;
 
     &:hover {
         cursor: pointer;
         background-color: $color-light-orange;
-    }
-
-    &__text {
-        color: $color-white;
-        font-size: 1.6rem;
-        font-weight: $font-weight-bold;
-        line-height: 1rem;
     }
 }
 
