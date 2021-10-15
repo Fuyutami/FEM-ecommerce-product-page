@@ -29,24 +29,28 @@ btnSubstract.addEventListener('click', function () {
 const largePrew = document.querySelector('.product-gallery__large-preview')
 const thumbnailContainer = document.querySelector('.product-gallery__thumbnails')
 const thumbnails = document.querySelectorAll('.product-gallery__thumb-prew')
+let currThumb = thumbnails[0];
 
 largePrew.addEventListener('click', function () {
+    lightboxThumbNr = currThumb.dataset.thumb
     lightBigPrew.style.backgroundImage = `url(../images/image-product-${lightboxThumbNr}.jpg)`
     lightThumbs[lightboxThumbNr-1].classList.add('lightbox__thumbnail--active')
     lightbox.classList.remove('hidden')
+  
+    
 })
 
 thumbnailContainer.addEventListener('click', function (e) {
-    const clicked = e.target.closest('.product-gallery__thumb-prew')
+    currThumb = e.target.closest('.product-gallery__thumb-prew')
     
-    if(!clicked) return
+    if(!currThumb) return
 
-    console.log(clicked)
+    console.log(currThumb)
     thumbnails.forEach(t => t.classList.remove('product-gallery__thumb-active'))
-    clicked.classList.add('product-gallery__thumb-active')
+    currThumb.classList.add('product-gallery__thumb-active')
 
-    largePrew.style.backgroundImage = `url(../images/image-product-${clicked.dataset.thumb}.jpg)`
-    lightboxThumbNr = clicked.dataset.thumb
+    largePrew.style.backgroundImage = `url(../images/image-product-${currThumb.dataset.thumb}.jpg)`
+    
 })
 
 
@@ -102,3 +106,27 @@ btnClose.addEventListener('click', function () {
     lightbox.classList.add('hidden')
     lightThumbs.forEach(t => t.classList.remove('lightbox__thumbnail--active'))
 })
+
+btnNext.addEventListener('click', function () {
+    if(lightboxThumbNr < lightThumbs.length) {
+        lightboxThumbNr++
+        viewImage(lightboxThumbNr)
+    }
+})
+
+btnPrevious.addEventListener('click', function () {
+    if(lightboxThumbNr > 1) {
+        lightboxThumbNr--
+        viewImage(lightboxThumbNr)
+    }
+})
+
+lightThumbContainer.addEventListener('click', function (e) {
+    const clicked = e.target.closest('.lightbox__thumbnail')
+    if(!clicked|| +clicked.dataset.thumb === lightboxThumbNr) return
+    lightboxThumbNr = +clicked.dataset.thumb
+    viewImage(+clicked.dataset.thumb)
+})
+
+
+
